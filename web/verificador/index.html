@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super del Sur - Verificador</title>
+    <style>
+        body {
+            height: 700px;
+            position: relative;
+            background-color: rgb(28, 189, 111);
+        }
+
+        #barcode {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+		
+		#logo{
+			position: absolute;
+			top: 15%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+
+        #instructions {
+            text-align: center;
+            font-family: Arial;
+            font-weight: bold;
+            font-size: 36px;
+            color: white;
+            position: absolute;
+            top: 37.5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        if (window.addEventListener) {
+            var codigo = "";
+            window.addEventListener("keydown", function (e) {
+                if (e.keyCode == 13 && codigo != "") {
+                    window.location = "mostrar_producto.php?codigo=" + codigo;
+                    codigo = "";
+                }
+                else {codigo += String.fromCharCode(e.keyCode);}
+            }, true);
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <img id="logo" src="img/superdelsur.png" alt="" width="315" height="190">
+        <p id="instructions" >Acerca el código de barras<br>del producto al lector para<br>consultar su precio.</p>
+        <img id="barcode" src="img/barcode-scan.gif" alt="" width="200px" height="200px">
+    </div>
+</body>
+
+</html>
